@@ -1,5 +1,9 @@
 # innclod
 
+CREATE DATABASE registro_documentos;
+
+USE registro_documentos;
+
 CREATE TABLE PRO_PROCESO (
     PRO_ID INT AUTO_INCREMENT,
     PRO_NOMBRE VARCHAR(255) NOT NULL,
