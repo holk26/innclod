@@ -1,0 +1,9 @@
+.panel{
+    max-width: 800px;
+    margin: auto;
+    background: rgb(253, 253, 253);
+}
+.text-center{
+    text-align: center;
+    color: green;
+}
