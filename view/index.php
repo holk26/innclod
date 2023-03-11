@@ -1,7 +1,15 @@
 <?php
 require_once("layouts/header.php");
 ?>
-<a href="index.php?m=document" class="btn">nuevo</a>
+
+<a href="index.php?m=document" class="btn"><button type="submit">Nuevo</button></a>
+<form action="" method="GET">
+  <label for="buscar">Buscar:</label>
+  <input type="number" id="buscar" name="codigo" placeholder="codigo documento...">
+  <input type="hidden" name="m" value="searchDocument">
+  <button type="submit">Buscar</button>
+</form>
+
 <table>
     <tr>
         <td>ID</td>

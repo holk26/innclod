@@ -11,7 +11,7 @@ class modelControllers{
     //mostrar
     static function getIndex(){
         $document = new Model();
-        $datos = $document -> getDocument("doc_documento","PRO_ID = 1"); //
+        $datos = $document -> getDocument(null); //
         require_once("view/index.php");
     }
 
@@ -83,6 +83,23 @@ class modelControllers{
         $tipo = $documento->getTipos();
         
         require_once("view/updateDocument.php");
+    }
+
+    //eliminar
+    static function delete(){
+        $id = $_REQUEST['id'];
+        $documento = new Model();
+        $proceso = $documento->deleteDocument($id);
+        header("Location: http://localhost/innclod/");
+    }
+
+
+     //buscar
+     static function searchDocument(){
+        $codigo = $_REQUEST['codigo'];
+        $document = new Model();
+        $datos = $document -> getDocument($codigo); //
+        require_once("view/index.php");
     }
 
 

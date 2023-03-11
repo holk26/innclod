@@ -22,9 +22,14 @@ class Model{
         }
     }
 
-    public function getDocument($tabla, $condition) {
-        //$consul="select * from ".$tabla." where ". $condition .";";
-        $consul="SELECT * FROM `doc_documento`";
+    public function getDocument($id_codigo) {
+
+        if (empty($id_codigo) || !isset($id_codigo)) {
+            $consul = "SELECT * FROM `doc_documento`";
+        } else {
+            $consul = "SELECT * FROM `doc_documento` where DOC_CODIGO=".$id_codigo;
+        }
+    
         $result = $this->db->query($consul);
 
         while($filas = $result -> FETCHALL(PDO::FETCH_ASSOC)){
@@ -71,8 +76,8 @@ class Model{
         $stmt->close();
     }
 
-    public function deleteDocument($tabla, $condition){
-        $consul="delete from ".$tabla." where ". $condition;
+    public function deleteDocument($id){
+        $consul="delete from doc_documento where DOC_ID=". $id;
         $result = $this->db->query($consul);
 
         if ($result) {
