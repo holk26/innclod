@@ -57,3 +57,6 @@ VALUES
 ('Documento 3', FLOOR(RAND() * 100000), 'Contenido del documento 3', 3, 4),
 ('Documento 4', FLOOR(RAND() * 100000), 'Contenido del documento 4', 4, 5),
 ('Documento 5', FLOOR(RAND() * 100000), 'Contenido del documento 5', 5, 1);
+
+
+usuario y contraseña es admin
