@@ -49,16 +49,20 @@ class Model{
     }
 
 
-    public function updateDocument($tabla, $data, $condicion) {
-        $query = "update ".$tabla." set ". $data . " where ".$condicion;
-        $result = $this->db->query($query);
-
-        if ($result) {
+    public function updateDocument($id, $nombre, $tipo, $proceso, $contenido, $codigo) {
+        $stmt = $this->db->prepare("UPDATE doc_documento SET DOC_NOMBRE = ?, DOC_CODIGO = ?, DOC_CONTENIDO = ?, DOC_ID_TIPO = ?, DOC_ID_PROCESO = ? WHERE DOC_ID = ?");
+        $stmt->bindParam(1, $nombre);
+        $stmt->bindParam(2, $codigo);
+        $stmt->bindParam(3, $contenido);
+        $stmt->bindParam(4, $tipo);
+        $stmt->bindParam(5, $proceso);
+        $stmt->bindParam(6, $id);
+        if ($stmt->execute()){
             return true;
         } else {
             return false;
         }
-        
+        $stmt->close();
     }
 
     public function deleteDocument($tabla, $condition){

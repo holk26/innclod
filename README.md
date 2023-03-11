@@ -47,6 +47,8 @@ VALUES
 ('Pasaporte', 'PAS');
 
 
+--ejecuta al final
+
 -- Insertar datos aleatorios en DOC_DOCUMENTO
 INSERT INTO DOC_DOCUMENTO (DOC_NOMBRE, DOC_CODIGO, DOC_CONTENIDO, DOC_ID_TIPO, DOC_ID_PROCESO)
 VALUES 

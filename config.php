@@ -1,2 +1,2 @@
 <?php
-define ("urlsite","http://localhost/innclod2/");
+define ("urlsite","http://localhost/innclod/");

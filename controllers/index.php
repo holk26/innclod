@@ -46,6 +46,27 @@ class modelControllers{
         }
     }
 
+    static function updateDocument(){
+        if(isset($_GET['nombre']) && isset($_GET['tipo']) && isset($_GET['proceso']) && isset($_GET['contenido']) && isset($_GET['codigo'])){
+            $nombre = $_GET['nombre'];
+            $tipo = $_GET['tipo'];
+            $proceso = $_GET['proceso'];
+            $contenido = $_GET['contenido'];
+            $codigo = $_GET['codigo'];
+
+            //Llamada al modelo para guardar el documento
+            $document = new Model();
+            $documento_guardado = $document -> updateDocument($nombre, $tipo, $proceso, $contenido, $codigo);
+
+            //Redireccionamiento a la página principal
+            header("Location:".urlsite);
+            exit();
+        }else{
+            //En caso de no haber recibido los datos necesarios, se muestra el formulario nuevamente
+            self::document();
+        }
+    }
+
     //editar
     static function edite(){
         $documento = new Model();
