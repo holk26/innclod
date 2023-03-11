@@ -22,29 +22,25 @@ if(empty($document)) {
 // Obtener los procesos y tipos de documento para mostrarlos en el formulario
 $procesos = $model->getProcesos();
 $tipos = $model->getTipos();
-//var_dump($procesos);
+//var_dump($document);
 
 ?>
 <h1>Actualizar documento</h1>
 <form method="GET" action="">
-<?php 
-            if(!empty($document )):
-                
-                foreach($document as $key => $value)
-                    foreach($value as $v): ?>
-
-                        <input type="hidden" name="id_documento" value="<?php echo $v['DOC_ID']; ?>">
+<input type="hidden" name="id_documento" value="<?php echo $document[0][0]['DOC_ID']; ?>">
                                 
                                 <label for="nombre">Nombre del documento:</label>
-                                <input type="text" id="nombre" name="nombre" required value="<?php echo $v['DOC_NOMBRE']; ?>">
+                                <input type="text" id="nombre" name="nombre" required value="<?php echo $document[0][0]['DOC_NOMBRE']; ?>">
+
+                                <label for="nombre">Codigo documento:</label>
+                                <input type="number" id="codigo" name="codigo" required value="<?php echo $document[0][0]['DOC_CODIGO']; ?>">
 
                                 <label for="tipo">Tipo de documento:</label>
                                 <select id="tipo" name="tipo" required>
-                                    <option value="">Seleccione un tipo de documento</option>
                                     <?php
                                     foreach($tipos  as $key => $value2)
                                         foreach ($value2 as $t) {
-                                            $selected = ($t['TIP_ID'] == $v['DOC_ID_TIPO']) ? 'selected' : '';
+                                            $selected = ($t['TIP_ID'] == $document[0][0]['DOC_ID_TIPO']) ? 'selected' : '';
                                             echo '<option value="'.$t['TIP_ID'].'" '.$selected.'>'.$t['TIP_NOMBRE'].'</option>';
                                         }
                                     ?>
@@ -52,26 +48,19 @@ $tipos = $model->getTipos();
 
                                 <label for="proceso">Proceso asociado:</label>
                                 <select id="proceso" name="proceso" required>
-                                    <option value="">Seleccione un proceso</option>
                                     <?php foreach($procesos[0] as $p):
-                                        $selected = ($p['PRO_ID'] == $v['DOC_ID_PROCESO']) ? 'selected' : '';
+                                        $selected = ($p['PRO_ID'] == $document[0][0]['DOC_ID_PROCESO']) ? 'selected' : '';
                                         ?>
                                         <option value="<?= $p['PRO_ID'] ?>" <?= $selected ?>><?= $p['PRO_NOMBRE'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
 
                                 <label for="contenido">Contenido del documento:</label>
-                                <textarea id="contenido" name="contenido"><?php echo $v['DOC_CONTENIDO']; ?></textarea>
+                                <textarea id="contenido" name="contenido"><?php echo $document[0][0]['DOC_CONTENIDO']; ?></textarea>
                                 <input type="hidden" name="m" value="updateDocument">
                                 <button type="submit">Actualizar</button>
+                        
  
-
-                    <?php endforeach ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="5">Sin registros</td>
-                </tr>
-            <?php endif;?>
 </form>
 
 <?php

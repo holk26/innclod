@@ -58,8 +58,14 @@ class Model{
         $stmt->bindParam(5, $proceso);
         $stmt->bindParam(6, $id);
         if ($stmt->execute()){
+            // Obtener el número de filas afectadas
+            $filas = $stmt->rowCount();
+
+            // Imprimir el resultado
+            echo "Filas afectadas: " . $filas;
             return true;
         } else {
+            echo "error";
             return false;
         }
         $stmt->close();
