@@ -58,5 +58,6 @@ VALUES
 ('Documento 4', FLOOR(RAND() * 100000), 'Contenido del documento 4', 4, 5),
 ('Documento 5', FLOOR(RAND() * 100000), 'Contenido del documento 5', 5, 1);
 
+PHP Version 8.2.0
 
 usuario y contraseña es admin
