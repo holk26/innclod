@@ -62,6 +62,10 @@ PHP Version 8.2.0
 
 usuario y contraseña es admin
 
+![image](https://user-images.githubusercontent.com/23020718/224463650-758abeff-88e8-4259-85de-0773c09bd03c.png)
+
+![image](https://user-images.githubusercontent.com/23020718/224463699-e33d736e-1edb-4201-8800-eb030ae4269d.png)
+
 
 ![image](https://user-images.githubusercontent.com/23020718/224463526-97a373f0-dbe4-4bbd-a177-44b99a7db221.png)
 
